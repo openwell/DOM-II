@@ -71,8 +71,20 @@ window.addEventListener("resize", function() {
     nav[i].addEventListener('dblclick', ele =>{
         ele.target. style.color = colorArray[ `${Math.floor(Math.random() * colorArray.length)}`] 
     })  
- 
 }
+
+function allowDrop(ev) {
+    ev.preventDefault();
+  }
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+  }
+
+  function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+  }
 
 
 
